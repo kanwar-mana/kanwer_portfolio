@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, ExternalLink, Github, Folder } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 type Project = {
@@ -22,7 +21,7 @@ const projects: Project[] = [
     title: "E-Commerce Platform",
     description:
       "A full-stack e-commerce platform with real-time inventory, secure Stripe payments, and an admin dashboard for managing products and orders.",
-    image: "/projects/ecommerce.png",
+    image: "",
     tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
     liveUrl: "#",
     githubUrl: "#",
@@ -32,7 +31,7 @@ const projects: Project[] = [
     title: "Project Management App",
     description:
       "A collaborative project management tool with Kanban boards, real-time updates, role-based access, and team chat integration.",
-    image: "/projects/project-mgmt.png",
+    image: "",
     tags: ["React", "Node.js", "Socket.io", "MongoDB", "Redux"],
     liveUrl: "#",
     githubUrl: "#",
@@ -42,7 +41,7 @@ const projects: Project[] = [
     title: "AI Content Generator",
     description:
       "An AI-powered content generation tool that creates blog posts, social media copy, and marketing content using OpenAI APIs.",
-    image: "/projects/ai-content.png",
+    image: "",
     tags: ["Next.js", "OpenAI", "PostgreSQL", "Tailwind CSS"],
     liveUrl: "#",
     githubUrl: "#",
@@ -52,7 +51,7 @@ const projects: Project[] = [
     title: "Real Estate Listing",
     description:
       "A modern real estate platform with advanced search, map integration, and virtual tour capabilities.",
-    image: "/projects/real-estate.png",
+    image: "",
     tags: ["React", "Node.js", "Google Maps", "Firebase"],
     liveUrl: "#",
     githubUrl: "#",
@@ -61,7 +60,7 @@ const projects: Project[] = [
     title: "Fitness Tracker",
     description:
       "A fitness tracking app with workout logging, progress charts, and personalized goal setting.",
-    image: "/projects/fitness.png",
+    image: "",
     tags: ["Next.js", "Chart.js", "Supabase", "Tailwind CSS"],
     liveUrl: "#",
     githubUrl: "#",
@@ -70,7 +69,7 @@ const projects: Project[] = [
     title: "Portfolio Template",
     description:
       "A sleek, animated developer portfolio template with dark mode, Framer Motion animations, and CMS integration.",
-    image: "/projects/portfolio.png",
+    image: "",
     tags: ["Next.js", "Framer Motion", "MDX", "Tailwind CSS"],
     liveUrl: "#",
     githubUrl: "#",
@@ -112,14 +111,23 @@ function FeaturedProjectCard({
           isEven ? "lg:order-1" : "lg:order-2",
         )}
       >
-        <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-300 z-10" />
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, 50vw"
-        />
+        {project.image ? (
+          <>
+            <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-300 z-10" />
+            <img
+              src={project.image}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </>
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-secondary">
+            <Folder size={40} className="text-muted-foreground/40" />
+            <span className="text-xs text-muted-foreground/50 font-mono">
+              Preview coming soon
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -210,14 +218,23 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       {/* Image */}
       <div className="relative w-full aspect-video bg-secondary overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-300 z-10" />
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
+        {project.image ? (
+          <>
+            <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-300 z-10" />
+            <img
+              src={project.image}
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </>
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-secondary">
+            <Folder size={32} className="text-muted-foreground/40" />
+            <span className="text-xs text-muted-foreground/50 font-mono">
+              Preview coming soon
+            </span>
+          </div>
+        )}
 
         {/* Hover overlay with links */}
         <div
