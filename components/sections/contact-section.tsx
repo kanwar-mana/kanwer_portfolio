@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   Mail,
@@ -27,8 +27,8 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+92 300 0000000",
-    href: "tel:+923000000000",
+    value: "+92 305 4418833",
+    href: "tel:+923054418833",
   },
   {
     icon: MapPin,
@@ -45,6 +45,15 @@ const socials = [
 ];
 
 export default function ContactSection() {
+  const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    companyName: "",
+    website: "",
+    subject: "",
+    message: "",
+  });
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -65,7 +74,7 @@ export default function ContactSection() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative w-full py-24 md:py-32 overflow-hidden"
+      className="relative w-full py-18 md:py-24 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/2 to-transparent pointer-events-none" />
@@ -179,70 +188,60 @@ export default function ContactSection() {
               )}
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <label
-                    htmlFor="name"
-                    className="text-sm font-medium text-foreground"
-                  >
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Your name"
-                    className="bg-background/50"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label
-                    htmlFor="email"
-                    className="text-sm font-medium text-foreground"
-                  >
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    className="bg-background/50"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label
-                  htmlFor="subject"
-                  className="text-sm font-medium text-foreground"
-                >
-                  Subject
-                </label>
                 <Input
-                  id="subject"
-                  placeholder="What's this about?"
+                  label="Name"
+                  id="name"
+                  placeholder="Your name"
+                  className="bg-background/50"
+                  required
+                />
+                <Input
+                  label="Email"
+                  id="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  className="bg-background/50"
+                  required
+                />
+
+                <Input
+                  label="Company Name (Opt.)"
+                  id="company-name"
+                  placeholder="Your company name"
+                  className="bg-background/50"
+                />
+                <Input
+                  label="Website (Opt.)"
+                  id="website"
+                  placeholder="https://yourwebsite.com"
                   className="bg-background/50"
                 />
               </div>
 
-              <div className="space-y-2">
-                <label
-                  htmlFor="message"
-                  className="text-sm font-medium text-foreground"
-                >
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="Tell me about your project..."
-                  rows={5}
-                  className="bg-background/50 resize-none"
-                />
-              </div>
+              <Input
+                label="Subject"
+                id="subject"
+                placeholder="What's this about?"
+                className="bg-background/50"
+              />
+
+              <Textarea
+                id="message"
+                label="Message"
+                placeholder="Tell me about your project..."
+                rows={5}
+                className="bg-background/50 resize-none"
+                required
+              />
 
               <Button
                 type="submit"
-                className="w-full gap-2 shine-effect relative overflow-hidden"
+                className="w-full gap-2 relative overflow-hidden"
                 size="lg"
+                onClick={() => setSubmitting(true)}
+                disabled={!formData.name || !formData.email || submitting}
               >
-                Send Message
+                {submitting ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </Button>
             </form>

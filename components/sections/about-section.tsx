@@ -11,7 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import Link from "next/link";
 
 const stats = [
@@ -107,7 +107,7 @@ export default function AboutSection() {
     <section
       id="about"
       ref={sectionRef}
-      className="relative w-full py-24 md:py-32 overflow-hidden"
+      className="relative w-full py-18 md:py-24 overflow-hidden"
     >
       {/* Background subtle gradient */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/2 to-transparent pointer-events-none" />

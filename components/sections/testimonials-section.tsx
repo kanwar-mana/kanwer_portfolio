@@ -142,7 +142,7 @@ export default function TestimonialsSection() {
     <section
       id="testimonials"
       ref={sectionRef}
-      className="relative w-full py-24 md:py-32 overflow-hidden"
+      className="relative w-full py-18 md:py-24 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/2 to-transparent pointer-events-none" />
