@@ -282,7 +282,7 @@ export default function SkillsSection() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden py-18 md:py-24"
     >
       {/* Subtle bg gradient */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-primary/2 to-transparent pointer-events-none" />

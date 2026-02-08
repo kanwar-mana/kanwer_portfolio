@@ -5,6 +5,7 @@ import { Circle, Github, Twitter, Linkedin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Button } from "./button";
 
 function ElegantShape({
   className,
@@ -39,7 +40,7 @@ function ElegantShape({
         ease: [0.23, 0.86, 0.39, 0.96],
         opacity: { duration: 1.2 },
       }}
-      className={cn("absolute", className)}
+      className={cn("absolute hidden md:block", className)}
     >
       <motion.div
         animate={{
@@ -184,8 +185,8 @@ function HeroGeometric({
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-4xl sm:text-6xl md:text-[5rem] mb-6 md:mb-8 tracking-tighter">
-              <span className="flex flex-wrap sm:justify-center items-center w-full  gap-3 font-medium logo-name">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl mb-2 md:mb-4 tracking-tighter">
+              <span className="flex flex-wrap sm:justify-center items-center w-full  gap-3 font-bold">
                 <span className="text-foreground">{title1}</span>
                 <span className="bg-primary text-background px-2 rounded-md">
                   {title2}
@@ -207,9 +208,15 @@ function HeroGeometric({
             initial="hidden"
             animate="visible"
           >
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed font-light sm:max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed font-light sm:max-w-2xl mx-auto">
               {description}
             </p>
+            <div className="flex gap-2 flex-start sm:justify-center sm:items-center">
+              <Button size="lg" variant="outline">
+                Resume
+              </Button>
+              <Button size="lg">Get in Touch</Button>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -221,24 +228,24 @@ function HeroGeometric({
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 1.2 }}
-        className="fixed hidden bottom-8 left-6 md:left-10 z-20 md:flex flex-col items-center gap-5"
+        className="fixed hidden bottom-0 left-6 md:left-10 z-20 md:flex flex-col items-center gap-5"
       >
         <Link
-          href="https://github.com"
+          href="https://github.com/kanwar-mana"
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
-          <Github size={22} />
+          <Github size={26} />
         </Link>
         <Link
-          href="https://wa.me/"
+          href="https://wa.me/923184418693?text=Hi%20I%27m%20interested%20in%20your%20services."
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
+            width="26"
+            height="26"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -255,16 +262,16 @@ function HeroGeometric({
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
-          <Twitter size={22} />
+          <Twitter size={26} />
         </Link>
         <Link
-          href="https://linkedin.com"
+          href="https://linkedin.com/in/kanwer-abdull-rahman"
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
-          <Linkedin size={22} />
+          <Linkedin size={26} />
         </Link>
-        <div className="w-px h-16 bg-border mt-2" />
+        <div className="w-0.5 h-18 bg-border mt-2" />
       </motion.div>
     </div>
   );
