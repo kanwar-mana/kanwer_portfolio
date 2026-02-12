@@ -15,10 +15,10 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 
 const stats = [
-  { label: "Years Experience", value: "3+" },
-  { label: "Projects Completed", value: "20+" },
-  { label: "Happy Clients", value: "15+" },
-  { label: "Technologies", value: "12+" },
+  { label: "Years Experience", value: "1+" },
+  { label: "Projects Completed", value: "5+" },
+  { label: "Certifications", value: "4" },
+  { label: "Technologies", value: "15+" },
 ];
 
 const skills = [
@@ -26,41 +26,44 @@ const skills = [
     icon: Code2,
     title: "Full Stack Development",
     description:
-      "Building robust web applications with React, Next.js, Node.js, and modern backend technologies.",
+      "Building scalable web applications with React.js, Next.js, Node.js, Express.js, and MongoDB.",
   },
   {
     icon: Palette,
-    title: "UI/UX Design",
+    title: "Modern UI Engineering",
     description:
-      "Creating intuitive, beautiful interfaces that delight users and drive engagement.",
+      "Crafting pixel-perfect interfaces with Tailwind CSS, Shadcn UI, Radix UI, and Framer Motion.",
   },
   {
     icon: Rocket,
-    title: "Performance Optimization",
+    title: "Payment & API Integration",
     description:
-      "Ensuring lightning-fast load times and smooth user experiences across all devices.",
+      "Integrating Stripe, PayPal gateways, Firebase services, and architecting secure RESTful APIs.",
   },
   {
     icon: Sparkles,
-    title: "Modern Technologies",
+    title: "State & Auth Management",
     description:
-      "Staying ahead with the latest frameworks, tools, and best practices in web development.",
+      "Implementing complex state management with Redux Toolkit and secure authentication with JWT.",
   },
 ];
 
 const techStack = [
-  "React",
+  "React.js",
   "Next.js",
   "TypeScript",
+  "JavaScript",
   "Node.js",
+  "Express.js",
   "Tailwind CSS",
-  "PostgreSQL",
+  "Redux Toolkit",
   "MongoDB",
-  "Docker",
+  "Firebase",
   "Git",
-  "Figma",
+  "Vercel",
   "REST APIs",
-  "GraphQL",
+  "Shadcn UI",
+  "Framer Motion",
 ];
 
 export default function AboutSection() {
@@ -143,16 +146,18 @@ export default function AboutSection() {
               className="space-y-5"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I&apos;m a Full Stack Developer with a deep passion for building
-                modern, scalable web applications. My journey in software
-                engineering has given me a solid foundation in both front-end
-                aesthetics and back-end architecture.
+                I&apos;m Kanwer Abdull Rahman, a Computer Science student at UET
+                Taxila with hands-on experience in full-stack web development. I
+                specialize in React.js, Next.js, and modern frontend
+                technologies, with a proven track record of building scalable
+                web applications and integrating payment systems.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I thrive on turning complex problems into elegant, user-friendly
-                solutions. Whether it&apos;s a sleek landing page or a
-                full-fledged SaaS platform, I bring the same level of dedication
-                and attention to detail.
+                From developing consultancy platforms and sports booking systems
+                to architecting secure RESTful APIs, I&apos;m passionate about
+                creating user-centric solutions that drive technical innovation.
+                I bring strong skills in state management, responsive design,
+                and agile collaboration to every project.
               </p>
             </motion.div>
 
