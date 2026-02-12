@@ -18,61 +18,64 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "PrimeZoneC (Consultancy Web App)",
     description:
-      "A full-stack e-commerce platform with real-time inventory, secure Stripe payments, and an admin dashboard for managing products and orders.",
-    image: "",
-    tags: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "Built a consultancy platform for a Pakistan-based client using Next.js (TypeScript) and Firebase, with advanced university search, filtering, and pagination across 100+ institutions.",
+    image: "/projects/prime.png",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Firebase",
+      "Redux Toolkit",
+      "Tailwind CSS",
+    ],
+    liveUrl: "https://www.primezonec.com/",
     featured: true,
   },
   {
-    title: "Project Management App",
+    title: "FitLynq (Sports Booking Platform)",
     description:
-      "A collaborative project management tool with Kanban boards, real-time updates, role-based access, and team chat integration.",
-    image: "",
-    tags: ["React", "Node.js", "Socket.io", "MongoDB", "Redux"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "Engineered a full-stack booking platform with React 19 and Node.js where users discover courts, create lobbies, and book multiplayer sessions with role-based access for player and business accounts.",
+    image: "/projects/fitlynq.png",
+    tags: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "Stripe",
+      "PayPal",
+      "Role-Based Access",
+    ],
     featured: true,
   },
   {
-    title: "AI Content Generator",
+    title: "AI-Driven Platform for FYP Coordination",
     description:
-      "An AI-powered content generation tool that creates blog posts, social media copy, and marketing content using OpenAI APIs.",
-    image: "",
-    tags: ["Next.js", "OpenAI", "PostgreSQL", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "Developing a web application to automate the Final Year Project workflow for students and coordinators, with secure RESTful APIs, JWT authentication, and active session management across devices.",
+    image: "/projects/fyp.png",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Redux Toolkit",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+    ],
     featured: true,
   },
   {
-    title: "Real Estate Listing",
+    title: "DevBeeZ Agency Site",
     description:
-      "A modern real estate platform with advanced search, map integration, and virtual tour capabilities.",
-    image: "",
-    tags: ["React", "Node.js", "Google Maps", "Firebase"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Fitness Tracker",
-    description:
-      "A fitness tracking app with workout logging, progress charts, and personalized goal setting.",
-    image: "",
-    tags: ["Next.js", "Chart.js", "Supabase", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Portfolio Template",
-    description:
-      "A sleek, animated developer portfolio template with dark mode, Framer Motion animations, and CMS integration.",
-    image: "",
-    tags: ["Next.js", "Framer Motion", "MDX", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
+      "Built a modern marketing website using Next.js 13 App Router and TypeScript, featuring mobile-first responsive layouts, contact form integration, and an MDX blog powered by Contentlayer for SEO-friendly content.",
+    image: "/projects/devbeez.png",
+    tags: [
+      "Next.js 13",
+      "TypeScript",
+      "Tailwind CSS",
+      "MDX",
+      "Contentlayer",
+      "SEO",
+    ],
+    liveUrl: "https://dev-beez.vercel.app/",
   },
 ];
 
@@ -113,7 +116,7 @@ function FeaturedProjectCard({
       >
         {project.image ? (
           <>
-            <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-300 z-10" />
+            <div className="absolute inset-0  group-hover:bg-transparent transition-colors duration-300 z-10" />
             <img
               src={project.image}
               alt={project.title}
@@ -220,7 +223,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <div className="relative w-full aspect-video bg-secondary overflow-hidden">
         {project.image ? (
           <>
-            <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors duration-300 z-10" />
+            <div className="absolute inset-0  group-hover:bg-transparent transition-colors duration-300 z-10" />
             <img
               src={project.image}
               alt={project.title}
@@ -414,7 +417,7 @@ export default function ProjectsSection() {
           className="mt-16 text-center"
         >
           <Link
-            href="https://github.com"
+            href="https://github.com/kanwar-mana?tab=repositories"
             target="_blank"
             className={cn(
               "inline-flex items-center gap-2 px-6 py-3 rounded-full",
