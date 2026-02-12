@@ -45,16 +45,62 @@ const socials = [
 ];
 
 export default function ContactSection() {
-  const [submitting, setSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: "",
     email: "",
     companyName: "",
     website: "",
     subject: "",
     message: "",
-  });
+  };
+
+  const [submitting, setSubmitting] = useState(false);
+  const [formData, setFormData] = useState(initialFormData);
+  const [status, setStatus] = useState<string | null>(null);
   const sectionRef = useRef(null);
+
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    if (submitting) return;
+
+    setSubmitting(true);
+    setStatus(null);
+
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      companyName: formData.companyName,
+      website: formData.website,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData(initialFormData);
+        return;
+      }
+
+      const errorPayload = await response.json().catch(() => null);
+      const errorMessage =
+        errorPayload?.error || "Failed to send message. Please try again.";
+      setStatus(errorMessage);
+    } catch {
+      setStatus("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   const fadeUpVariants = {
@@ -181,6 +227,7 @@ export default function ContactSection() {
             className="lg:col-span-3"
           >
             <form
+              onSubmit={handleSubmit}
               className={cn(
                 "p-6 md:p-8 rounded-2xl",
                 "border border-border bg-card/30",
@@ -193,6 +240,10 @@ export default function ContactSection() {
                   id="name"
                   placeholder="Your name"
                   className="bg-background/50"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   required
                 />
                 <Input
@@ -201,6 +252,10 @@ export default function ContactSection() {
                   type="email"
                   placeholder="you@example.com"
                   className="bg-background/50"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   required
                 />
 
@@ -209,12 +264,20 @@ export default function ContactSection() {
                   id="company-name"
                   placeholder="Your company name"
                   className="bg-background/50"
+                  value={formData.companyName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, companyName: e.target.value })
+                  }
                 />
                 <Input
                   label="Website (Opt.)"
                   id="website"
                   placeholder="https://yourwebsite.com"
                   className="bg-background/50"
+                  value={formData.website}
+                  onChange={(e) =>
+                    setFormData({ ...formData, website: e.target.value })
+                  }
                 />
               </div>
 
@@ -223,6 +286,10 @@ export default function ContactSection() {
                 id="subject"
                 placeholder="What's this about?"
                 className="bg-background/50"
+                value={formData.subject}
+                onChange={(e) =>
+                  setFormData({ ...formData, subject: e.target.value })
+                }
               />
 
               <Textarea
@@ -231,6 +298,10 @@ export default function ContactSection() {
                 placeholder="Tell me about your project..."
                 rows={5}
                 className="bg-background/50 resize-none"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 required
               />
 
@@ -238,12 +309,17 @@ export default function ContactSection() {
                 type="submit"
                 className="w-full gap-2 relative overflow-hidden"
                 size="lg"
-                onClick={() => setSubmitting(true)}
-                disabled={!formData.name || !formData.email || submitting}
+                disabled={
+                  !formData.name ||
+                  !formData.email ||
+                  !formData.message ||
+                  submitting
+                }
               >
                 {submitting ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </Button>
+              {status && <p className="text-sm">{status}</p>}
             </form>
           </motion.div>
         </div>
