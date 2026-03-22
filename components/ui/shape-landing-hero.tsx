@@ -152,13 +152,13 @@ function HeroGeometric({
 
       <div className="relative flex justify-center items-center z-10 container mx-auto px-4 md:px-6">
         <div className="sm:text-center mx-auto">
-          <Image
+          {/* <Image
             src="/logo.png"
             alt="Kanwer Abdull Rahman - Full Stack Developer"
             width={100}
             height={50}
             className="mx-auto"
-          />
+          /> */}
           {/* <motion.div
             custom={0}
             variants={fadeUpVariants}

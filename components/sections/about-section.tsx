@@ -146,11 +146,11 @@ export default function AboutSection() {
               className="space-y-5"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I&apos;m Kanwer Abdull Rahman, a Computer Science student at UET
-                Taxila with hands-on experience in full-stack web development. I
-                specialize in React.js, Next.js, and modern frontend
-                technologies, with a proven track record of building scalable
-                web applications and integrating payment systems.
+                I&apos;m Kanwar Rashid Ahmad, with hands-on experience in
+                full-stack web development. I specialize in React.js, Next.js,
+                and modern frontend technologies, with a proven track record of
+                building scalable web applications and integrating payment
+                systems.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 From developing consultancy platforms and sports booking systems
