@@ -39,8 +39,8 @@ const contactInfo = [
 ];
 
 const socials = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/kanwar-mana", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/kanwer-abdull-rahman/", label: "LinkedIn" },
   { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
 ];
 

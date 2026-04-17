@@ -13,8 +13,8 @@ export default function Home() {
       <Header email="kanwarabdullrahman@gmail.com" />
       <HeroGeometric
         badge="Hello, I am"
-        title1="Kanwar Rashid"
-        title2="Ahmad"
+        title1="Kanwer Abdull"
+        title2="Rahman"
         title3="Full Stack Developer"
         description="Transform ideas into reality. My academic experience has provided me with a solid foundation in software principles, while also allowing me to dive into the latest advancements in Software Engineering and Web Development."
       />

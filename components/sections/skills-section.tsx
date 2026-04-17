@@ -97,7 +97,7 @@ export default function SkillsSection() {
               {repeatedIcons(ICONS_ROW1, 4).map((icon, index) => (
                 <div
                   key={index}
-                  className="h-16 w-16 shrink-0 rounded-full bg-white dark:bg-gray-300 shadow-md flex items-center justify-center"
+                  className="sm:h-16 sm:w-16 h-8 w-8 shrink-0 rounded-full bg-white dark:bg-gray-300 shadow-md flex items-center justify-center"
                 >
                   <Image
                     key={index}
@@ -116,7 +116,7 @@ export default function SkillsSection() {
               {repeatedIcons(ICONS_ROW2, 4).map((src, i) => (
                 <div
                   key={i}
-                  className="h-16 w-16 shrink-0 rounded-full bg-white dark:bg-gray-300 shadow-md flex items-center justify-center"
+                  className="sm:h-16 sm:w-16 h-8 w-8 shrink-0 rounded-full bg-white dark:bg-gray-300 shadow-md flex items-center justify-center"
                 >
                   <Image
                     src={src}
@@ -130,8 +130,8 @@ export default function SkillsSection() {
             </div>
 
             {/* Fade overlays */}
-            <div className="absolute left-0 top-0 h-full w-24 bg-linear-to-r from-white dark:from-black to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 h-full w-24 bg-linear-to-l from-white dark:from-black to-transparent pointer-events-none" />
+            <div className="absolute left-0 top-0 h-full w-12 sm:w-24 bg-linear-to-r from-white dark:from-black to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 h-full w-12 sm:w-24 bg-linear-to-l from-white dark:from-black to-transparent pointer-events-none" />
           </div>
 
           <style jsx>{`
