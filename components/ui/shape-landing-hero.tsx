@@ -231,14 +231,16 @@ function HeroGeometric({
         className="fixed hidden bottom-0 left-6 md:left-10 z-20 md:flex flex-col items-center gap-5"
       >
         <Link
-          href="https://github.com/kanwar-mana"
+          // href="https://github.com/kanwar-mana"
+          href=""
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
           <Github size={26} />
         </Link>
         <Link
-          href="https://wa.me/923184418693?text=Hi%20I%27m%20interested%20in%20your%20services."
+          // href="https://wa.me/923184418693?text=Hi%20I%27m%20interested%20in%20your%20services."
+          href=""
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
@@ -265,7 +267,8 @@ function HeroGeometric({
           <Twitter size={26} />
         </Link>
         <Link
-          href="https://linkedin.com/in/kanwer-abdull-rahman"
+          // href="https://linkedin.com/in/kanwer-abdull-rahman"
+          href=""
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
