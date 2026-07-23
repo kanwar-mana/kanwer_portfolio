@@ -52,8 +52,8 @@ It emphasizes clarity, fast loading, and a polished UI for strong first impressi
 
 ### 1) Clone the repository
 ```bash
-git clone https://github.com/kanwar-mana/rahman.git
-cd rahman
+git clone https://github.com/kanwar-mana/kanwar-portfolio.git
+cd kanwar-portfolio
 ```
 
 ### 2) Install dependencies
