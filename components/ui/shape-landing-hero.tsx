@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Circle, Github, Twitter, Linkedin } from "lucide-react";
@@ -100,7 +100,10 @@ function HeroGeometric({
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+    <div
+      id="home"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
+    >
       <div className="absolute inset-0 bg-transparent" />
 
       <div className="absolute inset-0 overflow-hidden">
@@ -231,16 +234,14 @@ function HeroGeometric({
         className="fixed hidden bottom-0 left-6 md:left-10 z-20 md:flex flex-col items-center gap-5"
       >
         <Link
-          // href="https://github.com/kanwar-mana"
-          href=""
+          href="https://github.com/kanwar-mana"
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
           <Github size={26} />
         </Link>
         <Link
-          // href="https://wa.me/923184418693?text=Hi%20I%27m%20interested%20in%20your%20services."
-          href=""
+          href="https://wa.me/923184418693?text=Hi%20I%27m%20interested%20in%20your%20services."
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >
@@ -267,8 +268,7 @@ function HeroGeometric({
           <Twitter size={26} />
         </Link>
         <Link
-          // href="https://linkedin.com/in/kanwer-abdull-rahman"
-          href=""
+          href="https://linkedin.com/in/kanwer-abdull-rahman"
           target="_blank"
           className="text-muted-foreground hover:text-primary transition-colors duration-200"
         >

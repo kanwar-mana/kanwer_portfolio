@@ -12,6 +12,25 @@ import { navLinks, personal } from "@/lib/portfolio-data";
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  /** Smooth-scroll to an anchor and close the mobile menu */
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      setMobileOpen(false);
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Sync the URL hash without a jump
+        window.history.pushState(null, "", href);
+      }
+    } else {
+      setMobileOpen(false);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 bg-linear-to-b from-muted-foreground/10 to-transparent backdrop-blur-xl  `}
@@ -46,6 +65,7 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="text-sm flex justify-center font-semibold  items-center py-2 px-3 rounded-full text-muted-foreground hover:text-background hover:bg-primary  transition-colors duration-200"
                 >
                   {link.label}
@@ -68,7 +88,7 @@ export default function Header() {
               >
                 <Button variant="outline">Resume</Button>
               </a>
-              <Link href="#contact">
+              <Link href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
                 <Button className={cn("shine-effect relative overflow-hidden")}>
                   Start Project
                 </Button>
@@ -99,7 +119,7 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="flex justify-between text-sm font-semibold  transition-colors duration-200"
                 >
                   <span>{link.label}</span>
@@ -120,7 +140,7 @@ export default function Header() {
                 <Link
                   href="#contact"
                   className="w-full"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, "#contact")}
                 >
                   <Button className="w-full">Get in Touch</Button>
                 </Link>
