@@ -52,8 +52,8 @@ It emphasizes clarity, fast loading, and a polished UI for strong first impressi
 
 ### 1) Clone the repository
 ```bash
-git clone https://github.com/kanwar-mana/kanwer_portfolio.git
-cd kanwer_portfolio
+git clone https://github.com/kanwar-mana/rahman.git
+cd rahman
 ```
 
 ### 2) Install dependencies
@@ -112,13 +112,8 @@ This portfolio demonstrates:
 
 ## 📬 Contact
 
-**Author:** Kanwar Mana  
+**Author:** Kanwar Abdull Rahman  
 **GitHub:** [kanwar-mana](https://github.com/kanwar-mana)
-
-> Add LinkedIn, email, and portfolio live URL here for stronger recruiter conversion.
 
 ---
 
-## 📄 License
-
-Add your preferred license (e.g., MIT).
