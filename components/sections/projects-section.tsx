@@ -5,79 +5,9 @@ import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight, ExternalLink, Github, Folder } from "lucide-react";
 import Link from "next/link";
+import { projects, githubProfileUrl, type Project } from "@/lib/portfolio-data";
 
-type Project = {
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  featured?: boolean;
-};
 
-const projects: Project[] = [
-  {
-    title: "PrimeZoneC (Consultancy Web App)",
-    description:
-      "Built a consultancy platform for a Pakistan-based client using Next.js (TypeScript) and Firebase, with advanced university search, filtering, and pagination across 100+ institutions.",
-    image: "/projects/prime.png",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Firebase",
-      "Redux Toolkit",
-      "Tailwind CSS",
-    ],
-    liveUrl: "https://www.primezonec.com/",
-    featured: true,
-  },
-  {
-    title: "FitLynq (Sports Booking Platform)",
-    description:
-      "Engineered a full-stack booking platform with React 19 and Node.js where users discover courts, create lobbies, and book multiplayer sessions with role-based access for player and business accounts.",
-    image: "/projects/fitlynq.png",
-    tags: [
-      "React",
-      "Node.js",
-      "Express.js",
-      "Stripe",
-      "PayPal",
-      "Role-Based Access",
-    ],
-    featured: true,
-  },
-  {
-    title: "AI-Driven Platform for FYP Coordination",
-    description:
-      "Developing a web application to automate the Final Year Project workflow for students and coordinators, with secure RESTful APIs, JWT authentication, and active session management across devices.",
-    image: "/projects/fyp.png",
-    tags: [
-      "Next.js",
-      "TypeScript",
-      "Redux Toolkit",
-      "Express.js",
-      "MongoDB",
-      "JWT",
-    ],
-    featured: true,
-  },
-  {
-    title: "DevBeeZ Agency Site",
-    description:
-      "Built a modern marketing website using Next.js 13 App Router and TypeScript, featuring mobile-first responsive layouts, contact form integration, and an MDX blog powered by Contentlayer for SEO-friendly content.",
-    image: "/projects/devbeez.png",
-    tags: [
-      "Next.js 13",
-      "TypeScript",
-      "Tailwind CSS",
-      "MDX",
-      "Contentlayer",
-      "SEO",
-    ],
-    liveUrl: "https://dev-beez.vercel.app/",
-  },
-];
 
 function FeaturedProjectCard({
   project,
@@ -417,7 +347,7 @@ export default function ProjectsSection() {
           className="mt-16 text-center"
         >
           <Link
-            href="https://github.com/kanwar-mana?tab=repositories"
+            href={githubProfileUrl}
             target="_blank"
             className={cn(
               "inline-flex items-center gap-2 px-6 py-3 rounded-full",
