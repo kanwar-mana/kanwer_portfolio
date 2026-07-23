@@ -1,9 +1,4 @@
-/**
- * ============================================================
- *  PORTFOLIO DATA — Single Source of Truth
- *  Edit this file to update any content across the portfolio.
- * ============================================================
- */
+//  PORTFOLIO DATA — Single Source of Truth
 
 import {
   Code2,
@@ -24,9 +19,8 @@ import {
   Twitter,
 } from "lucide-react";
 
-// ─────────────────────────────────────────────
 // PERSONAL INFO
-// ─────────────────────────────────────────────
+
 export const personal = {
   /** Full name displayed in the hero and about section */
   firstName: "Kanwer Abdull",
@@ -40,12 +34,11 @@ export const personal = {
   /** Displayed in the contact section */
   location: "Pakistan",
   /** Path to the resume PDF in /public */
-  resumeUrl: "/Kanwer_Abdull_Rahman_resume.pdf",
+  resumeUrl: "/rahman-resume.pdf",
 };
 
-// ─────────────────────────────────────────────
 // HERO SECTION
-// ─────────────────────────────────────────────
+
 export const hero = {
   badge: "Hello, I am",
   title1: personal.firstName,
@@ -55,9 +48,8 @@ export const hero = {
     "Transform ideas into reality. My academic experience has provided me with a solid foundation in software principles, while also allowing me to dive into the latest advancements in Software Engineering and Web Development.",
 };
 
-// ─────────────────────────────────────────────
 // NAVIGATION LINKS
-// ─────────────────────────────────────────────
+
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -65,19 +57,18 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-// ─────────────────────────────────────────────
 // ABOUT SECTION
-// ─────────────────────────────────────────────
+
 export const about = {
   paragraphs: [
-    `I'm Kanwer Abdull Rahman, with hands-on experience in full-stack web development. I specialize in React.js, Next.js, and modern frontend technologies, with a proven track record of building scalable web applications and integrating payment systems.`,
-    `From developing consultancy platforms and sports booking systems to architecting secure RESTful APIs, I'm passionate about creating user-centric solutions that drive technical innovation. I bring strong skills in state management, responsive design, and agile collaboration to every project.`,
+    `I'm Kanwer Abdull Rahman, a Full Stack Developer with hands-on experience delivering production-grade web applications for clients across Pakistan and South Africa. I specialize in Next.js, React, TypeScript, and Node.js, building everything from AI-driven coordination platforms to secure e-commerce systems with automated payment flows.`,
+    `I've integrated payment gateways including Stripe, PayPal, and PayFast (with IPN webhook & signature validation), built role-based booking platforms, and architected RESTful APIs secured with JWT. Whether it's a SaaS dashboard, a consultancy platform, or an admin system with PDF invoicing and cron job automation, I bring the full stack to the finish line.`,
   ],
   stats: [
     { label: "Years Experience", value: "1+" },
-    { label: "Projects Completed", value: "5+" },
+    { label: "Projects Completed", value: "6+" },
     { label: "Certifications", value: "4" },
-    { label: "Technologies", value: "15+" },
+    { label: "Technologies", value: "18+" },
   ],
   /** Capability cards shown on the right column of the about section */
   capabilities: [
@@ -85,25 +76,25 @@ export const about = {
       icon: Code2,
       title: "Full Stack Development",
       description:
-        "Building scalable web applications with React.js, Next.js, Node.js, Express.js, and MongoDB.",
-    },
-    {
-      icon: Palette,
-      title: "Modern UI Engineering",
-      description:
-        "Crafting pixel-perfect interfaces with Tailwind CSS, Shadcn UI, Radix UI, and Framer Motion.",
+        "Building production-ready apps with Next.js, React, Node.js, Express.js, MongoDB, and PostgreSQL (Prisma ORM).",
     },
     {
       icon: Rocket,
       title: "Payment & API Integration",
       description:
-        "Integrating Stripe, PayPal gateways, Firebase services, and architecting secure RESTful APIs.",
+        "Integrating Stripe, PayPal, and PayFast (IPN webhooks) with automated order fulfillment, PDF invoicing, and cron job automation.",
+    },
+    {
+      icon: Palette,
+      title: "Modern UI Engineering",
+      description:
+        "Crafting pixel-perfect interfaces with Tailwind CSS, Shadcn UI, Radix UI, and Framer Motion, mobile-first and fully responsive.",
     },
     {
       icon: Sparkles,
-      title: "State & Auth Management",
+      title: "AI & Auth Systems",
       description:
-        "Implementing complex state management with Redux Toolkit and secure authentication with JWT.",
+        "Integrating AI-driven workflows and implementing secure session management with JWT, Redux Toolkit, and role-based access control.",
     },
   ],
   /** Tech stack badges shown inside the about section */
@@ -117,18 +108,22 @@ export const about = {
     "Tailwind CSS",
     "Redux Toolkit",
     "MongoDB",
+    "PostgreSQL",
+    "Prisma ORM",
     "Firebase",
+    "Stripe",
+    "PayFast",
     "Git",
     "Vercel",
     "REST APIs",
+    "JWT",
     "Shadcn UI",
     "Framer Motion",
   ],
 };
 
-// ─────────────────────────────────────────────
 // SKILLS SECTION — Scrolling icon rows
-// ─────────────────────────────────────────────
+
 export const skills = {
   row1: [
     {
@@ -192,25 +187,32 @@ export const skills = {
   ],
 };
 
-// ─────────────────────────────────────────────
 // PROJECTS SECTION
-// ─────────────────────────────────────────────
+
+export type CaseStudy = {
+  problem: string;
+  solution: string;
+  result: string;
+};
+
 export type Project = {
   title: string;
+  slug: string;
   description: string;
   image: string;
   tags: string[];
   liveUrl?: string;
   githubUrl?: string;
-  /** If true, shown as a large featured card */
   featured?: boolean;
+  caseStudy?: CaseStudy;
 };
 
 export const projects: Project[] = [
   {
-    title: "AcadPath (AI-Driven Platform for FYP Coordination)",
+    slug: "acadpath",
+    title: "AcadPath",
     description:
-      "Developing a web application to automate the Final Year Project workflow for students and coordinators, with secure RESTful APIs, JWT authentication, and active session management across devices.",
+      "A web application that automates the Final Year Project workflow for students and coordinators, with secure RESTful APIs, JWT authentication, and active session management across devices.",
     image: "/projects/fyp.png",
     tags: [
       "Next.js",
@@ -222,27 +224,45 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://acadpath.app/",
     featured: true,
+    caseStudy: {
+      problem:
+        "Universities managing Final Year Projects relied on fragmented spreadsheets, email chains, and manual supervisor allocations. Students had no visibility into approval status, and coordinators spent hours chasing updates across departments.",
+      solution:
+        "Built a full-stack platform with Next.js and Express.js that centralises the entire FYP lifecycle. Role-based access (student / supervisor / coordinator) enforces clear workflows. JWT-secured APIs handle proposal submissions, supervisor assignments, and milestone tracking. Redux Toolkit keeps UI state in sync across tabs and devices without stale data.",
+      result:
+        "Eliminated manual coordination overhead for 3 user roles. Real-time session management ensures coordinators always see live project status. The platform now serves as the single source of truth for all FYP activity, replacing ad-hoc email threads entirely.",
+    },
   },
   {
-    title: "Console Vault (E-Commerce Platform for Gaming Tech)",
+    slug: "console-vault",
+    title: "Console Vault",
     description:
-      "Built a full-stack e-commerce platform (Next.js, Prisma/PostgreSQL) with an admin dashboard for inventory and orders. Integrated PayFast with IPN webhook and signature validation for secure, automated order fulfillment. Automated inventory release, PDF invoicing, and email confirmations via cron jobs.",
+      "A full-stack e-commerce platform for gaming tech with an admin dashboard, PayFast payment integration (IPN webhooks), automated inventory management, PDF invoicing, and cron job-based order fulfillment.",
     image: "/projects/console.png",
     tags: [
       "Next.js",
       "TypeScript",
       "PostgreSQL",
-      " Prisma ORM",
+      "Prisma ORM",
       "Tailwind CSS",
       "Next.js API Routes",
     ],
     liveUrl: "http://consolevault.co.za/",
     featured: true,
+    caseStudy: {
+      problem:
+        "The client needed a South African gaming e-commerce store with a local payment gateway (PayFast), but existing solutions lacked the custom admin tooling required to manage gaming console inventory, track orders, and automate invoicing without manual intervention.",
+      solution:
+        "Built the entire platform with Next.js App Router and PostgreSQL via Prisma ORM. Integrated PayFast with IPN webhook validation and cryptographic signature checking to ensure only legitimate payment events trigger order fulfillment. Cron jobs automatically release inventory on failed payments, generate PDF invoices, and send email confirmations — zero manual steps post-purchase.",
+      result:
+        "The client launched with a fully automated order pipeline. Payment failures are handled gracefully with inventory auto-release. Admins manage stock, orders, and customers from a single dashboard. PDF invoices are emailed within seconds of a confirmed payment.",
+    },
   },
   {
-    title: "PrimeZoneC (Consultancy Web App)",
+    slug: "primezonec",
+    title: "PrimeZoneC",
     description:
-      "Built a consultancy platform for a Pakistan-based client using Next.js (TypeScript) and Firebase, with advanced university search, filtering, and pagination across 100+ institutions.",
+      "A consultancy platform for a Pakistan-based client using Next.js (TypeScript) and Firebase, with advanced university search, filtering, and pagination across 100+ institutions.",
     image: "/projects/prime.png",
     tags: [
       "Next.js",
@@ -253,11 +273,20 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://www.primezonec.com/",
     featured: true,
+    caseStudy: {
+      problem:
+        "A Pakistani education consultancy was manually guiding students through university selection using WhatsApp and static PDFs. With 100+ institutions across multiple countries, there was no searchable, filterable database — students had to wait hours for a consultant to respond with options.",
+      solution:
+        "Designed and built a consultancy portal with Next.js and Firebase where students can search, filter by country/program/fee range, and paginate through 100+ institutions in real time. Redux Toolkit manages filter state so users can refine searches without page reloads. Firebase handles authentication and data persistence with near-zero latency.",
+      result:
+        "Students can now self-serve their university shortlist in minutes instead of waiting for consultant replies. The platform reduced consultant workload significantly and improved lead quality since users arrive at consultations with pre-selected options.",
+    },
   },
   {
-    title: "FitLynq (Sports Booking Platform)",
+    slug: "fitlynq",
+    title: "FitLynq",
     description:
-      "Engineered a full-stack booking platform with React 19 and Node.js where users discover courts, create lobbies, and book multiplayer sessions with role-based access for player and business accounts.",
+      "A full-stack sports booking platform where users discover courts, create lobbies, and book multiplayer sessions with role-based access for player and business accounts.",
     image: "/projects/fitlynq.png",
     tags: [
       "React",
@@ -269,12 +298,20 @@ export const projects: Project[] = [
     ],
     featured: true,
     liveUrl: "https://www.fitlynq.com/",
+    caseStudy: {
+      problem:
+        "Sports facility owners had no digital way to list their courts and manage bookings. Players wanting to organise group sessions had to coordinate through WhatsApp groups, often resulting in double-bookings, no-shows, and payment disputes.",
+      solution:
+        "Built a dual-role platform with React 19 and Node.js/Express. Business accounts list facilities and set availability; player accounts discover courts, create lobbies, and invite others. Stripe and PayPal handle payments with webhook-verified confirmations. Role-based middleware on the API ensures players cannot modify business-owned data and vice versa.",
+      result:
+        "Facility owners get a live booking dashboard with payment history. Players can find available courts, split costs, and book in under 2 minutes. The lobby system turned group bookings from a coordination nightmare into a one-click flow.",
+    },
   },
-
   {
+    slug: "devbeez",
     title: "DevBeeZ Agency Site",
     description:
-      "Built a modern marketing website using Next.js 13 App Router and TypeScript, featuring mobile-first responsive layouts, contact form integration, and an MDX blog powered by Contentlayer for SEO-friendly content.",
+      "A modern agency marketing website with Next.js 13 App Router, mobile-first layouts, contact form integration, and an MDX blog powered by Contentlayer for SEO-friendly content.",
     image: "/projects/devbeez.png",
     tags: [
       "Next.js 13",
@@ -285,6 +322,14 @@ export const projects: Project[] = [
       "SEO",
     ],
     liveUrl: "https://dev-beez.vercel.app/",
+    caseStudy: {
+      problem:
+        "The agency had no web presence to showcase services or attract inbound leads. They needed a site that ranked on Google, communicated their offering clearly, and let them publish blog content without a CMS subscription.",
+      solution:
+        "Built with Next.js 13 App Router for server-side rendering and optimal Core Web Vitals. MDX + Contentlayer lets the team write blog posts in Markdown with React components — no CMS needed. Contact form routes through a Next.js API handler with email delivery. Every page has hand-crafted meta tags, structured data, and semantic HTML.",
+      result:
+        "The site achieved a Lighthouse score of 98+ on performance and 100 on SEO. The blog enables the team to publish thought leadership content independently. Inbound leads via the contact form started arriving within weeks of launch.",
+    },
   },
 ];
 
@@ -292,9 +337,8 @@ export const projects: Project[] = [
 export const githubProfileUrl =
   "https://github.com/kanwar-mana?tab=repositories";
 
-// ─────────────────────────────────────────────
 // SERVICES SECTION
-// ─────────────────────────────────────────────
+
 export const services = [
   {
     icon: Globe,
@@ -340,9 +384,8 @@ export const services = [
   },
 ];
 
-// ─────────────────────────────────────────────
 // TESTIMONIALS SECTION
-// ─────────────────────────────────────────────
+
 export type Testimonial = {
   name: string;
   role: string;
@@ -401,9 +444,8 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-// ─────────────────────────────────────────────
 // CONTACT SECTION — Info cards & social links
-// ─────────────────────────────────────────────
+
 export const contactInfo = [
   {
     icon: Mail,

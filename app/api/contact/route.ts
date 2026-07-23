@@ -1,5 +1,6 @@
-import { Resend } from "resend";
+﻿import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import buildEmailHtml from "./buildEmailHtml";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -14,7 +15,6 @@ export async function POST(req: Request) {
     const subject = String(body?.subject ?? "").trim();
     const message = String(body?.message ?? "").trim();
 
-    // Basic validation (keep it simple here)
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Name, email, and message are required." },
@@ -43,20 +43,17 @@ export async function POST(req: Request) {
       from,
       to,
       subject: subject
-        ? `New contact form message: ${subject}`
-        : `New contact form message from ${name}`,
-      replyTo: email, // so you can hit "Reply" directly
-      html: `
-        <div>
-          <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-          <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-          <p><strong>Company Name:</strong> ${escapeHtml(companyName || "-")}</p>
-          <p><strong>Website:</strong> ${escapeHtml(website || "-")}</p>
-          <p><strong>Subject:</strong> ${escapeHtml(subject || "-")}</p>
-          <p><strong>Message:</strong></p>
-          <p>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>
-        </div>
-      `,
+        ? `[Portfolio] ${subject}`
+        : `[Portfolio] New message from ${name}`,
+      replyTo: email,
+      html: buildEmailHtml({
+        name,
+        email,
+        companyName,
+        website,
+        subject,
+        message,
+      }),
     });
 
     if (error) {
@@ -72,7 +69,7 @@ export async function POST(req: Request) {
   }
 }
 
-// tiny helper to reduce injection risk in HTML emails
+// Reduce injection risk in HTML emails
 function escapeHtml(input: string) {
   return input
     .replaceAll("&", "&amp;")
