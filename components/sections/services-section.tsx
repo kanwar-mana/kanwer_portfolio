@@ -3,61 +3,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
-import {
-  Globe,
-  Smartphone,
-  ShoppingCart,
-  Search,
-  LayoutDashboard,
-  Paintbrush,
-  ArrowUpRight,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { services } from "@/lib/portfolio-data";
 
-const services = [
-  {
-    icon: Globe,
-    title: "Web Development",
-    description:
-      "Custom, high-performance websites built with modern frameworks like Next.js and React — optimized for speed, SEO, and scalability.",
-    highlights: ["Next.js / React", "Server-Side Rendering", "API Integration"],
-  },
-  {
-    icon: Smartphone,
-    title: "Responsive Design",
-    description:
-      "Pixel-perfect, mobile-first designs that look stunning on every screen — from phones to ultrawide monitors.",
-    highlights: ["Mobile-First", "Cross-Browser", "Adaptive Layouts"],
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Dashboard & SaaS",
-    description:
-      "Data-driven dashboards and SaaS products with real-time updates, role-based access, and clean analytics interfaces.",
-    highlights: ["Real-Time Data", "Auth & Roles", "Analytics UI"],
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-Commerce Solutions",
-    description:
-      "End-to-end online stores with secure payments, inventory management, and seamless checkout experiences.",
-    highlights: ["Payment Gateway", "Product Management", "Cart & Checkout"],
-  },
-  {
-    icon: Paintbrush,
-    title: "UI/UX Design",
-    description:
-      "User-centered design with wireframes, prototypes, and polished interfaces that balance beauty with usability.",
-    highlights: ["Wireframing", "Prototyping", "Design Systems"],
-  },
-  {
-    icon: Search,
-    title: "SEO & Performance",
-    description:
-      "Technical SEO audits, Core Web Vitals optimization, and performance tuning to help your site rank and load fast.",
-    highlights: ["Core Web Vitals", "Technical SEO", "Lighthouse 100"],
-  },
-];
+
 
 export default function ServicesSection() {
   const sectionRef = useRef(null);

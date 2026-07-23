@@ -12,63 +12,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { testimonials, type Testimonial } from "@/lib/portfolio-data";
 
-type Testimonial = {
-  name: string;
-  role: string;
-  company: string;
-  avatar: string;
-  content: string;
-  rating: number;
-};
 
-const testimonials: Testimonial[] = [
-  {
-    name: "Sarah Johnson",
-    role: "CEO",
-    company: "TechStart Inc.",
-    avatar: "",
-    content:
-      "Working with Kanwer was an incredible experience. He delivered a stunning e-commerce platform that exceeded our expectations. His attention to detail and technical expertise are truly impressive.",
-    rating: 5,
-  },
-  {
-    name: "Michael Chen",
-    role: "Product Manager",
-    company: "InnovateLab",
-    avatar: "",
-    content:
-      "Kanwer transformed our outdated dashboard into a modern, responsive application. The performance improvements were remarkable — page load times dropped by 60%. Highly recommended!",
-    rating: 5,
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Founder",
-    company: "DesignFlow Studio",
-    avatar: "",
-    content:
-      "I needed a portfolio that truly represented my brand, and Kanwer nailed it. The animations, the design, and the responsiveness — everything was pixel-perfect. A true professional.",
-    rating: 5,
-  },
-  {
-    name: "David Kim",
-    role: "CTO",
-    company: "DataSync Solutions",
-    avatar: "",
-    content:
-      "Kanwer built our entire SaaS platform from scratch. His full-stack skills are exceptional — from database architecture to frontend polish. He communicates clearly and delivers on time.",
-    rating: 5,
-  },
-  {
-    name: "Olivia Martinez",
-    role: "Marketing Director",
-    company: "GrowthPulse",
-    avatar: "",
-    content:
-      "Our conversion rate jumped 40% after Kanwer redesigned our landing pages. He understands both design and performance, which is a rare and valuable combination.",
-    rating: 5,
-  },
-];
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const initials = testimonial.name
