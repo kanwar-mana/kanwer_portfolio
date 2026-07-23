@@ -3,29 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  Menu,
-  X,
-  Mail,
-  ArrowRightCircleIcon,
-  ArrowUpRight,
-} from "lucide-react";
+import { Menu, X, Mail, ArrowUpRight } from "lucide-react";
 import { Button } from "./ui/button";
 import ThemeToggle from "./theme-toggle";
 import { cn } from "@/lib/utils";
+import { navLinks, personal } from "@/lib/portfolio-data";
 
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
-
-export default function Header({
-  email = "kanwarabdullrahman@gmail.com",
-}: {
-  email: string;
-}) {
+export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -72,13 +56,13 @@ export default function Header({
 
           {/* CTA Button */}
           <div className="flex justify-center items-center gap-4">
-            <a target="_blank" href={`mailto:${email}`}>
+            <a target="_blank" href={`mailto:${personal.email}`}>
               <Mail className="size-5" />
             </a>
             <ThemeToggle />
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="/Kanwer_Abdull_Rahman_resume.pdf"
+                href={personal.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -124,7 +108,7 @@ export default function Header({
               ))}
               <div className="flex w-full gap-4">
                 <a
-                  href="/Kanwer_Abdull_Rahman_resume.pdf"
+                  href={personal.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}

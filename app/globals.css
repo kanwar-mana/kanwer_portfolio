@@ -156,3 +156,12 @@
     transform: translateX(100%) translateY(100%) rotate(25deg);
   }
 }
+
+/* ── Sonner toast: pin close button to top-right ── */
+[data-sonner-toast] [data-close-button] {
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  left: auto !important;
+  transform: none !important;
+}

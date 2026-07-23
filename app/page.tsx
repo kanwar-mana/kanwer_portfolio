@@ -6,17 +6,18 @@ import ServicesSection from "@/components/sections/services-section";
 import ProjectsSection from "@/components/sections/projects-section";
 import TestimonialsSection from "@/components/sections/testimonials-section";
 import ContactSection from "@/components/sections/contact-section";
+import { hero } from "@/lib/portfolio-data";
 
 export default function Home() {
   return (
     <div>
-      <Header email="kanwarabdullrahman@gmail.com" />
+      <Header />
       <HeroGeometric
-        badge="Hello, I am"
-        title1="Kanwer Abdull"
-        title2="Rahman"
-        title3="Full Stack Developer"
-        description="Transform ideas into reality. My academic experience has provided me with a solid foundation in software principles, while also allowing me to dive into the latest advancements in Software Engineering and Web Development."
+        badge={hero.badge}
+        title1={hero.title1}
+        title2={hero.title2}
+        title3={hero.title3}
+        description={hero.description}
       />
       <div className="container max-w-7xl mx-auto px-4 md:px-6 overflow-visible">
         <AboutSection />

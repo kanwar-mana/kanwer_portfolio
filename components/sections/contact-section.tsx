@@ -3,46 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  Github,
-  Linkedin,
-  Twitter,
-} from "lucide-react";
+import { Send } from "lucide-react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "kanwarabdullrahman@gmail.com",
-    href: "mailto:kanwarabdullrahman@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+92 305 4418833",
-    href: "tel:+923054418833",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Pakistan",
-    href: "#",
-  },
-];
-
-const socials = [
-  { icon: Github, href: "https://github.com/kanwar-mana", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/kanwer-abdull-rahman/", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-];
+import { contactInfo, socials } from "@/lib/portfolio-data";
+import { toast } from "sonner";
 
 export default function ContactSection() {
   const initialFormData = {
@@ -56,7 +23,6 @@ export default function ContactSection() {
 
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
-  const [status, setStatus] = useState<string | null>(null);
   const sectionRef = useRef(null);
 
   async function handleSubmit(event: React.FormEvent) {
@@ -64,7 +30,6 @@ export default function ContactSection() {
     if (submitting) return;
 
     setSubmitting(true);
-    setStatus(null);
 
     const payload = {
       name: formData.name,
@@ -85,7 +50,9 @@ export default function ContactSection() {
       });
 
       if (response.ok) {
-        setStatus("Message sent successfully!");
+        toast.success("Message sent!", {
+          description: "Thanks for reaching out, I'll get back to you soon.",
+        });
         setFormData(initialFormData);
         return;
       }
@@ -93,9 +60,11 @@ export default function ContactSection() {
       const errorPayload = await response.json().catch(() => null);
       const errorMessage =
         errorPayload?.error || "Failed to send message. Please try again.";
-      setStatus(errorMessage);
+      toast.error("Failed to send", { description: errorMessage });
     } catch {
-      setStatus("Network error. Please try again.");
+      toast.error("Network error", {
+        description: "Check your connection and try again.",
+      });
     } finally {
       setSubmitting(false);
     }
@@ -319,7 +288,6 @@ export default function ContactSection() {
                 {submitting ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </Button>
-              {status && <p className="text-sm">{status}</p>}
             </form>
           </motion.div>
         </div>
