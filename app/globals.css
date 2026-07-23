@@ -165,3 +165,10 @@
   left: auto !important;
   transform: none !important;
 }
+
+/* ── Smooth scrolling ── */
+html {
+  scroll-behavior: smooth;
+  /* Offset so anchor targets appear below the fixed 64px (h-16) header */
+  scroll-padding-top: 4rem;
+}

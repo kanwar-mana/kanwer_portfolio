@@ -3,11 +3,15 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { ArrowUpRight, ExternalLink, Github, Folder } from "lucide-react";
+import {
+  ArrowUpRight,
+  ExternalLink,
+  Github,
+  Folder,
+  BookOpen,
+} from "lucide-react";
 import Link from "next/link";
 import { projects, githubProfileUrl, type Project } from "@/lib/portfolio-data";
-
-
 
 function FeaturedProjectCard({
   project,
@@ -70,11 +74,23 @@ function FeaturedProjectCard({
           isEven ? "lg:order-2" : "lg:order-1",
         )}
       >
-        <div className="flex items-center gap-2">
-          <Folder size={16} className="text-primary" />
-          <span className="font-mono text-primary text-xs tracking-wider uppercase">
-            Featured Project
-          </span>
+        <div className="flex items-center justify-between">
+          <div className="flex item-center gap-2">
+            <Folder size={16} className="text-primary" />
+            <span className="font-mono text-primary text-xs tracking-wider uppercase">
+              Featured Project
+            </span>
+          </div>
+          {project.liveUrl && (
+            <Link
+              href={project.liveUrl}
+              target="_blank"
+              className="text-muted-foreground hover:text-primary transition-colors duration-200"
+              aria-label="View live site"
+            >
+              <ExternalLink size={20} />
+            </Link>
+          )}
         </div>
 
         <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
@@ -103,7 +119,7 @@ function FeaturedProjectCard({
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-4 pt-2">
+        <div className="flex items-center gap-3 pt-2 flex-wrap">
           {project.githubUrl && (
             <Link
               href={project.githubUrl}
@@ -114,14 +130,18 @@ function FeaturedProjectCard({
               <Github size={20} />
             </Link>
           )}
-          {project.liveUrl && (
+
+          {project.caseStudy && project.slug && (
             <Link
-              href={project.liveUrl}
-              target="_blank"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200"
-              aria-label="View live site"
+              href={`/projects/${project.slug}`}
+              className={cn(
+                "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium",
+                "border border-primary/30 bg-primary/8 text-primary",
+                "hover:bg-primary hover:text-primary-foreground transition-colors duration-200",
+              )}
             >
-              <ExternalLink size={20} />
+              <BookOpen size={12} />
+              Case Study
             </Link>
           )}
         </div>
