@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kanwer Portfolio
 
-## Getting Started
+A modern, responsive developer portfolio built with Next.js and TypeScript to showcase projects, skills, and professional profile.
 
-First, run the development server:
+## 🚀 Overview
+
+This portfolio is designed as a clean and performance-focused personal website that helps recruiters quickly understand:
+- Who I am
+- What I build
+- Which technologies I work with
+- How to contact me
+
+It emphasizes clarity, fast loading, and a polished UI for strong first impressions.
+
+---
+
+## ✨ Highlights
+
+- **Modern UI/UX** with responsive design
+- **Project Showcase** section with key work and tech stacks
+- **Skills & Tech** overview for quick recruiter scanning
+- **Contact-focused layout** to drive outreach
+- **Optimized performance** using Next.js best practices
+
+---
+
+## 🧱 Tech Stack
+
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **Styling:** (Add your styling stack here, e.g., Tailwind CSS / CSS Modules)
+- **Deployment:** (Add hosting platform, e.g., Vercel)
+
+---
+
+## 📂 Project Structure (high-level)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+.
+├── app/                # Pages, layouts, and route segments
+├── components/         # Reusable UI components
+├── public/             # Static assets (images, icons, etc.)
+├── lib/                # Utility functions / helpers
+└── ...                 # Config and supporting files
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Update this section if your actual folder structure differs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚙️ Getting Started
 
-## Learn More
+### 1) Clone the repository
+```bash
+git clone https://github.com/kanwar-mana/kanwer_portfolio.git
+cd kanwer_portfolio
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 2) Install dependencies
+```bash
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 3) Configure environment variables
+Create a `.env.local` file in the project root:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+# Example
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-## Deploy on Vercel
+> Add additional environment variables if your project requires them.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 4) Run development server
+```bash
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Visit [http://localhost:3000](http://localhost:3000).
+
+---
+
+## 🧪 Scripts
+
+```bash
+npm run dev       # Start development server
+npm run build     # Build for production
+npm run start     # Start production server
+npm run lint      # Run lint checks
+```
+
+---
+
+## 🎯 Recruiter Snapshot
+
+This portfolio demonstrates:
+- Frontend engineering with modern React/Next.js patterns
+- Type-safe development using TypeScript
+- Component-driven architecture
+- Focus on usability, performance, and visual presentation
+
+---
+
+## 🔮 Planned Enhancements
+
+- Case-study style project pages
+- Blog or technical writing section
+- Dark/light theme toggle
+- SEO and analytics improvements
+
+---
+
+## 📬 Contact
+
+**Author:** Kanwar Mana  
+**GitHub:** [kanwar-mana](https://github.com/kanwar-mana)
+
+> Add LinkedIn, email, and portfolio live URL here for stronger recruiter conversion.
+
+---
+
+## 📄 License
+
+Add your preferred license (e.g., MIT).
