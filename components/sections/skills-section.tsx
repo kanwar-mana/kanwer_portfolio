@@ -4,29 +4,13 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { skills } from "@/lib/portfolio-data";
 
-const ICONS_ROW1 = [
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-];
-const ICONS_ROW2 = [
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-];
 
 // Utility to repeat icons enough times
-const repeatedIcons = (icons: string[], repeat = 4) =>
+const repeatedIcons = <T,>(icons: T[], repeat = 4) =>
   Array.from({ length: repeat }).flatMap(() => icons);
+
 
 export default function SkillsSection() {
   const sectionRef = useRef(null);
@@ -94,15 +78,15 @@ export default function SkillsSection() {
           <div className="mt-12 overflow-hidden relative pb-2">
             {/* Row 1 */}
             <div className="flex gap-10 whitespace-nowrap animate-scroll-left">
-              {repeatedIcons(ICONS_ROW1, 4).map((icon, index) => (
+              {repeatedIcons(skills.row1, 4).map((icon, index) => (
                 <div
                   key={index}
                   className="sm:h-16 sm:w-16 h-8 w-8 shrink-0 rounded-full bg-white dark:bg-gray-300 shadow-md flex items-center justify-center"
                 >
                   <Image
                     key={index}
-                    src={icon}
-                    alt="skill"
+                    src={icon.src}
+                    alt={icon.alt}
                     width={40}
                     height={40}
                     className="object-contain"
@@ -113,14 +97,14 @@ export default function SkillsSection() {
 
             {/* Row 2 */}
             <div className="flex gap-10 whitespace-nowrap mt-6 animate-scroll-right">
-              {repeatedIcons(ICONS_ROW2, 4).map((src, i) => (
+              {repeatedIcons(skills.row2, 4).map((icon, i) => (
                 <div
                   key={i}
                   className="sm:h-16 sm:w-16 h-8 w-8 shrink-0 rounded-full bg-white dark:bg-gray-300 shadow-md flex items-center justify-center"
                 >
                   <Image
-                    src={src}
-                    alt="icon"
+                    src={icon.src}
+                    alt={icon.alt}
                     width={40}
                     height={40}
                     className="object-contain"

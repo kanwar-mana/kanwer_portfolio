@@ -2,69 +2,13 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import {
-  Code2,
-  Palette,
-  Rocket,
-  Sparkles,
-  Download,
-  ArrowRight,
-} from "lucide-react";
+import { Download, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { about, personal } from "@/lib/portfolio-data";
 
-const stats = [
-  { label: "Years Experience", value: "1+" },
-  { label: "Projects Completed", value: "5+" },
-  { label: "Certifications", value: "4" },
-  { label: "Technologies", value: "15+" },
-];
 
-const skills = [
-  {
-    icon: Code2,
-    title: "Full Stack Development",
-    description:
-      "Building scalable web applications with React.js, Next.js, Node.js, Express.js, and MongoDB.",
-  },
-  {
-    icon: Palette,
-    title: "Modern UI Engineering",
-    description:
-      "Crafting pixel-perfect interfaces with Tailwind CSS, Shadcn UI, Radix UI, and Framer Motion.",
-  },
-  {
-    icon: Rocket,
-    title: "Payment & API Integration",
-    description:
-      "Integrating Stripe, PayPal gateways, Firebase services, and architecting secure RESTful APIs.",
-  },
-  {
-    icon: Sparkles,
-    title: "State & Auth Management",
-    description:
-      "Implementing complex state management with Redux Toolkit and secure authentication with JWT.",
-  },
-];
-
-const techStack = [
-  "React.js",
-  "Next.js",
-  "TypeScript",
-  "JavaScript",
-  "Node.js",
-  "Express.js",
-  "Tailwind CSS",
-  "Redux Toolkit",
-  "MongoDB",
-  "Firebase",
-  "Git",
-  "Vercel",
-  "REST APIs",
-  "Shadcn UI",
-  "Framer Motion",
-];
 
 export default function AboutSection() {
   const sectionRef = useRef(null);
@@ -145,20 +89,11 @@ export default function AboutSection() {
               animate={isInView ? "visible" : "hidden"}
               className="space-y-5"
             >
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I&apos;m Kanwer Abdull Rahman, with hands-on experience in
-                full-stack web development. I specialize in React.js, Next.js,
-                and modern frontend technologies, with a proven track record of
-                building scalable web applications and integrating payment
-                systems.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                From developing consultancy platforms and sports booking systems
-                to architecting secure RESTful APIs, I&apos;m passionate about
-                creating user-centric solutions that drive technical innovation.
-                I bring strong skills in state management, responsive design,
-                and agile collaboration to every project.
-              </p>
+              {about.paragraphs.map((para, i) => (
+                <p key={i} className="text-lg text-muted-foreground leading-relaxed">
+                  {para}
+                </p>
+              ))}
             </motion.div>
 
             {/* CTA Buttons */}
@@ -175,10 +110,12 @@ export default function AboutSection() {
                   <ArrowRight size={16} />
                 </Button>
               </Link>
-              <Button variant="outline" className="gap-2">
-                <Download size={16} />
-                Download CV
-              </Button>
+              <a href={personal.resumeUrl} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="gap-2">
+                  <Download size={16} />
+                  Download CV
+                </Button>
+              </a>
             </motion.div>
 
             {/* Stats */}
@@ -188,7 +125,7 @@ export default function AboutSection() {
               animate={isInView ? "visible" : "hidden"}
               className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-border"
             >
-              {stats.map((stat) => (
+              {about.stats.map((stat) => (
                 <motion.div key={stat.label} variants={staggerItem}>
                   <div className="text-3xl md:text-4xl font-bold text-primary">
                     {stat.value}
@@ -208,7 +145,7 @@ export default function AboutSection() {
             animate={isInView ? "visible" : "hidden"}
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            {skills.map((skill) => (
+            {about.capabilities.map((skill) => (
               <motion.div
                 key={skill.title}
                 variants={staggerItem}
